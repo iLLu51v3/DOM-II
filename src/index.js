@@ -49,7 +49,23 @@ window.onload = function (evt) {
     })
     // 6) Mouse move event: 
     document.body.addEventListener('mousemove', evt => {
-        const {xlientX, clientY} = evt
+        const {clientX, clientY} = evt
         console.log(` mouse is at ${clientX}, ${clientY}`)
     })
+
+    // 7) mouseenter
+    // 8) mouseleave
+    const destinations = document.querySelectorAll('.destination')
+    // console.log(destinations)
+    for(destination of destinations) {
+        destination.addEventListener('mouseenter', () => {
+            // console.log(destination)
+            destination.style.fontWeight = 'bold'
+        })
+        destination.addEventListener('mouseleave', () => {
+            setTimeout(() =>{
+                destination.style.fontWeight = 'initial'
+            }, 500)  
+        })
+    }
 }
